@@ -28,8 +28,8 @@ public class GameManager : PersistentSingleton<GameManager>
     private void Start()
     {
         InitCsvData();
+        //LoadData();
         UpdateEvent();
-        LoadData();
     }
 
     #region Data
@@ -93,7 +93,7 @@ public class GameManager : PersistentSingleton<GameManager>
 
         newsRecords = data.newsRecords.ToList();
         curDay = data.curDay;
-        todayEvent = eventDatas[data.today] ?? null;
+        todayEvent = eventDatas[data.today];
         doneEvents = data.doneEvents.ToList();
     }
 
@@ -153,7 +153,7 @@ public class GameManager : PersistentSingleton<GameManager>
     private EventData UpdateEvent()
     {
         var randomEvent = eventDatas.Keys
-            .Where(key => doneEvents.Any(done => key == done))
+            .Where(key => !doneEvents.Contains(key))
             .OrderBy(key => Guid.NewGuid()).First();
         todayEvent = eventDatas[randomEvent];
         doneEvents.Add(randomEvent);
