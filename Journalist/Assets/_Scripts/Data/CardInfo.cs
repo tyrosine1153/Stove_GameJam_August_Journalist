@@ -1,6 +1,6 @@
 ﻿public enum CardInfo
 {
-    Who,
+    Who = 1,
     When,
     Where,
     How,

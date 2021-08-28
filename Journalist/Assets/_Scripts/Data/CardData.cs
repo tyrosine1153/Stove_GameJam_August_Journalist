@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public struct CardData
+﻿public struct CardData
 {
     public int cardNumber;
     public string cardContent;
