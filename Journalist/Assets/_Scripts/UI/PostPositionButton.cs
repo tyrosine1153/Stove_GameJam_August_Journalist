@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PostPositionButton : MonoBehaviour
@@ -27,6 +28,10 @@ public class PostPositionButton : MonoBehaviour
                 }
                 else
                 {
+                    if (GameManager.Instance.curDay >= 14)
+                    {
+                        SceneManager.LoadScene("Demo_NewsEnding");
+                    }
                     GameManager.Instance.PassOneDay(NewsPaper.Instance.NowHeadline);
                     NewsPaper.Instance.nowEnterState = CardInfo.Who;
                     StartCoroutine(CoDirectNewsPaper());
@@ -41,7 +46,7 @@ public class PostPositionButton : MonoBehaviour
         var pos = news.transform.position;
         news.transform.DOMove(news.transform.position + new Vector3(0, 1000, 0), 1f);
         yield return new WaitForSeconds(1f);
-        news.transform.position = pos;
-        news.text.text = "";
+        NewsPaper.Instance.NowHeadline = news.text.text = "";
+        news.transform.DOMove(pos, 1f);
     }
 }
