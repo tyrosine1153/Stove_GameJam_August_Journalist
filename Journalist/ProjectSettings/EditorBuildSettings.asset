@@ -15,12 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Demo/Demo_Kim.unity
     guid: bfed0e6c056ab01418a46b91dfa7550b
   - enabled: 1
-    path: Assets/Scenes/Demo/Demo_main_game.unity
-    guid: df72daf7bdaf8f94e8f97237f4b86660
-  - enabled: 1
-    path: Assets/Scenes/Demo/Demo_Yu.unity
-    guid: 888a26895db520f4a87d7fb03feb535f
-  - enabled: 1
-    path: Assets/Scenes/Demo/Demo_ending.unity
-    guid: c7296fb15dbac574692db902a279cd4b
+    path: Assets/Scenes/Demo/Demo_NewsEnding.unity
+    guid: 227a7c5d1ee0dd845abaef5a7d6e1601
   m_configObjects: {}
