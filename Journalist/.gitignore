@@ -98,6 +98,8 @@ fabric.properties
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
+/[Aa]ssets/Plugins/*.meta
+/[Aa]ssets/Plugins/**/*.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
@@ -223,7 +225,6 @@ StyleCopReport.xml
 *_p.c
 *_h.h
 *.ilk
-*.meta
 *.obj
 *.iobj
 *.pch
