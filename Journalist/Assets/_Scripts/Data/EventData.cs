@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-public struct EventData
+public class EventData
 {
     public int eventNumber;
     public string eventContent;

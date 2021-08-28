@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using UnityEngine;
@@ -18,15 +19,16 @@ public class GameManager : PersistentSingleton<GameManager>
 
     private readonly string[] ResourcePaths =
     {
-        @"CSV/EventData", 
-        @"CSV/WhoData", @"CSV/WhenData", @"CSV/WhereData", 
+        @"CSV/EventData",
+        @"CSV/WhoData", @"CSV/WhenData", @"CSV/WhereData",
         @"CSV/HowData", @"CSV/WhatData", @"CSV/WhyData"
     };
-
+    
     private void Start()
     {
         InitCsvData();
         UpdateEvent();
+        LoadData();
     }
 
     #region Data
@@ -60,18 +62,81 @@ public class GameManager : PersistentSingleton<GameManager>
         }
     }
 
+    private class SavingData
+    {
+        public string[] newsRecords;
+        public int curDay;
+        public int today;
+        public int[] doneEventNum;
+
+        public SavingData(string[] newsRecords, int curDay, int today, int[] doneEventNum)
+        {
+            this.newsRecords = newsRecords;
+            this.curDay = curDay;
+            this.today = today;
+            this.doneEventNum = doneEventNum;
+        }
+    }
+
+    public void SaveData()
+    {
+        var doneEventNum = eventDatas.Keys.Where(key => eventDatas[key].isHappened);
+        var data = new SavingData(newsRecords.ToArray(), curDay, todayEvent.eventNumber, doneEventNum.ToArray());
+        
+        CreateJsonFile(Application.dataPath, "GameManagerData", data);
+    }
+
+    public void LoadData()
+    {
+        var data = LoadJsonFile<SavingData>(Application.dataPath, "GameManagerData");
+
+        newsRecords = data.newsRecords.ToList();
+        curDay = data.curDay;
+        todayEvent = eventDatas[data.today] ?? null;
+        foreach (var num in data.doneEventNum)
+        {
+            eventDatas[num].isHappened = true;
+        }
+    }
+
     // 하루 넘기기
     public void PassOneDay(string news)
     {
         AddNewsRecord(news);
         curDay++;
-
+        UpdateEvent();
+        
     }
 
     // 완성된 타이틀 목록 추가
     private void AddNewsRecord(string news)
     {
         newsRecords.Add(news);
+    }
+    
+    // Json Save/Load
+    private void CreateJsonFile<T>(string createPath, string fileName, T obj)
+    {
+        var jsonData = JsonUtility.ToJson(obj);
+
+        var fileStream =
+            new FileStream($"{createPath}/{fileName}", FileMode.Create); // 생성자 FileStream(String, FileMode)
+        var data = Encoding.UTF8.GetBytes(jsonData);
+
+        fileStream.Write(data, 0, data.Length); // byte로 인코딩 한 것을 파일스트림에 작성
+        fileStream.Close();
+    }
+
+    private T LoadJsonFile<T>(string loadPath, string fileName)
+    {
+        var fileStream = new FileStream($"{loadPath}/{fileName}.Jason", FileMode.Open);
+        var data = new byte[fileStream.Length];
+
+        fileStream.Read(data, 0, data.Length);
+        fileStream.Close();
+
+        var jsonData = Encoding.UTF8.GetString(data);
+        return JsonUtility.FromJson<T>(jsonData);
     }
 
     #endregion
@@ -85,6 +150,7 @@ public class GameManager : PersistentSingleton<GameManager>
             .Where(value => !value.isHappened)
             .OrderBy(value => Guid.NewGuid()).First();
         todayEvent = randomEvent;
+        todayEvent.isHappened = false;
 
         return todayEvent;
     }
@@ -116,7 +182,7 @@ public class GameManager : PersistentSingleton<GameManager>
     }
 
     #endregion
-    
+
     [ContextMenu("EventDatas")]
     public void ShowEventDatas()
     {
@@ -125,7 +191,7 @@ public class GameManager : PersistentSingleton<GameManager>
         {
             text.Append($"{data.Key} : {data.Value.eventContent}\n");
         }
-        
+
         Debug.Log(text.ToString());
     }
 
