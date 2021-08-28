@@ -7,7 +7,8 @@ using UnityEngine;
 
 public class GameManager : PersistentSingleton<GameManager>
 {
-    public List<string> newsRecords = new List<string>(); // 지금까지 만든 뉴스 기사들
+    public List<string> newsRecords = new List<string>();  // 지금까지 만든 뉴스 기사들
+    public List<int> doneEvents = new List<int>();  // 일어난 사건들(index)
     public int curDay; // 날짜 - 0 : 첫째날
 
     public Dictionary<int, EventData> eventDatas = new Dictionary<int, EventData>(); // 총 이벤트 목록
@@ -67,22 +68,21 @@ public class GameManager : PersistentSingleton<GameManager>
         public string[] newsRecords;
         public int curDay;
         public int today;
-        public int[] doneEventNum;
+        public int[] doneEvents;
 
-        public SavingData(string[] newsRecords, int curDay, int today, int[] doneEventNum)
+        public SavingData(string[] newsRecords, int curDay, int today, int[] doneEvents)
         {
             this.newsRecords = newsRecords;
             this.curDay = curDay;
             this.today = today;
-            this.doneEventNum = doneEventNum;
+            this.doneEvents = doneEvents;
         }
     }
 
     // Data Save / Load
     public void SaveData()
     {
-        var doneEventNum = eventDatas.Keys.Where(key => eventDatas[key].isHappened);
-        var data = new SavingData(newsRecords.ToArray(), curDay, todayEvent.eventNumber, doneEventNum.ToArray());
+        var data = new SavingData(newsRecords.ToArray(), curDay, todayEvent.eventNumber, doneEvents.ToArray());
 
         CreateJsonFile(Application.dataPath, "GameManagerData", data);
     }
@@ -94,10 +94,15 @@ public class GameManager : PersistentSingleton<GameManager>
         newsRecords = data.newsRecords.ToList();
         curDay = data.curDay;
         todayEvent = eventDatas[data.today] ?? null;
-        foreach (var num in data.doneEventNum)
-        {
-            eventDatas[num].isHappened = true;
-        }
+        doneEvents = data.doneEvents.ToList();
+    }
+
+    public void InitData()
+    {
+        newsRecords = new List<string>();
+        doneEvents = new List<int>();
+        curDay = 0;
+        todayEvent = null;
     }
 
     // 하루 넘기기
@@ -130,7 +135,7 @@ public class GameManager : PersistentSingleton<GameManager>
 
     private T LoadJsonFile<T>(string loadPath, string fileName)
     {
-        var fileStream = new FileStream($"{loadPath}/{fileName}.Jason", FileMode.Open);
+        var fileStream = new FileStream($"{loadPath}/{fileName}.Json", FileMode.Open);
         var data = new byte[fileStream.Length];
 
         fileStream.Read(data, 0, data.Length);
@@ -147,19 +152,19 @@ public class GameManager : PersistentSingleton<GameManager>
     // 이벤트 갱신 : 하루가 초기화 되었을 때 호출
     private EventData UpdateEvent()
     {
-        var randomEvent = eventDatas.Values
-            .Where(value => !value.isHappened)
-            .OrderBy(value => Guid.NewGuid()).First();
-        todayEvent = randomEvent;
-        todayEvent.isHappened = false;
+        var randomEvent = eventDatas.Keys
+            .Where(key => doneEvents.Any(done => key == done))
+            .OrderBy(key => Guid.NewGuid()).First();
+        todayEvent = eventDatas[randomEvent];
+        doneEvents.Add(randomEvent);
 
         return todayEvent;
     }
-
+    
     // 이벤트 얻기
     public EventData GetEvent()
     {
-        return todayEvent;  
+        return todayEvent;
     }
 
     // 카드 종류별 덱3장 얻기
