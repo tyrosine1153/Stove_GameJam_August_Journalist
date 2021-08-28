@@ -7,6 +7,8 @@ using Object = UnityEngine.Object;
 
 public class Widget : MonoBehaviour
 {
+    public WidgetType type;
+    
     protected virtual void Awake()
     {
         
@@ -26,7 +28,7 @@ public class Widget : MonoBehaviour
     {
         var type = typeof(T);
         var obj = Resources.Load<T>(type.ToString());
-        return Instantiate(obj,
-            typeof(MainCanvas).GetProperty($"{type}LayerRoot")?.GetValue(obj, null) as Transform);
+
+        return Instantiate(obj, MainCanvas.Instance.GetLayer(obj.type));
     }
 }
