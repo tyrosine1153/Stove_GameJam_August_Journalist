@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d5b172f08a77843a661a79d77c0d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundLayerRoot: {fileID: 0}
-  hudLayerRoot: {fileID: 0}
-  cardsLayerRoot: {fileID: 0}
-  popupLayerRoot: {fileID: 0}
+  backgroundLayerRoot: {fileID: 1501423165040041888}
+  hudLayerRoot: {fileID: 1501423164474202269}
+  cardsLayerRoot: {fileID: 1501423163459822078}
+  popupLayerRoot: {fileID: 1501423164583340084}

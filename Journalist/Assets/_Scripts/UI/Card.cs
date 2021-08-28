@@ -3,13 +3,13 @@ using UnityEngine.EventSystems;
 
 public class Card : Widget, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    private bool _isDragable;
+    private bool _isDragable = true;
     
     public void OnDrag(PointerEventData eventData)
     {
         if (_isDragable)
         {
-            
+            transform.position = eventData.position;
         }
     }
 
