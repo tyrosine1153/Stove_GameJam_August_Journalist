@@ -7,8 +7,12 @@ public class HomeButton : MonoBehaviour
 {
     public void OnClickQuitButton() //게임 종료 버튼
     {
-        Application.Quit();
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
+#else 
+        Application.Quit();
+#endif
+        
     }
 
     public void OnClickStartButton() //게임 시작 버튼
