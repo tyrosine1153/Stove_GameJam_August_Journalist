@@ -20,12 +20,12 @@ public class MainCanvas : MonoBehaviour
     public Transform CardLayerRoot => cardsLayerRoot;
     public Transform PopupLayerRoot => popupLayerRoot;
 
-    private static MainCanvas instance;
+    private static MainCanvas _instance;
     
     public static MainCanvas Instance
     {
-        get => instance ??= Instantiate(Resources.Load<MainCanvas>("MainCanvas"), Vector3.zero, Quaternion.identity);
-        private set => instance ??= value;
+        get => _instance ??= Instantiate(Resources.Load<MainCanvas>("MainCanvas"), Vector3.zero, Quaternion.identity);
+        private set => _instance ??= value;
     }
 
     public Transform GetLayer(WidgetType type)
