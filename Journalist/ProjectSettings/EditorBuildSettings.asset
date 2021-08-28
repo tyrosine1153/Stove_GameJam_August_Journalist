@@ -5,7 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Demo/Demo_Choi.unity
+    guid: 090093280473b24438a1b7ba5d155b6b
+  - enabled: 1
+    path: Assets/Scenes/Demo/Demo_Kim.unity
+    guid: bfed0e6c056ab01418a46b91dfa7550b
+  - enabled: 1
+    path: Assets/Scenes/Demo/Demo_main_game.unity
+    guid: df72daf7bdaf8f94e8f97237f4b86660
+  - enabled: 1
+    path: Assets/Scenes/Demo/Demo_Yu.unity
+    guid: 888a26895db520f4a87d7fb03feb535f
+  - enabled: 1
+    path: Assets/Scenes/Demo/Demo_ending.unity
+    guid: c7296fb15dbac574692db902a279cd4b
   m_configObjects: {}
