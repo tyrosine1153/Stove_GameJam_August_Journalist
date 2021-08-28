@@ -4,8 +4,8 @@ using System.Linq;
 
 public class GameManager : PersistentSingleton<GameManager>
 {
-    public int curDay; // 0 : 첫째날
     public List<string> newsRecords = new List<string>(); // 지금까지 만든 뉴스 기사들
+    public int curDay; // 날짜 - 0 : 첫째날
 
     public Dictionary<int, EventData> eventDatas; // 총 이벤트 목록
     public Dictionary<int, CardData> cardDatas; // 총 카드 목록
@@ -15,12 +15,21 @@ public class GameManager : PersistentSingleton<GameManager>
     private readonly CardInfo[] cardInfos
         = {CardInfo.How, CardInfo.When, CardInfo.Where, CardInfo.What, CardInfo.How, CardInfo.Why};
 
-    private readonly string[] resourcePaths
-        = {"", "", "", "", "", "", ""};
+    private readonly string[] resourcePaths =
+    {
+        @"CSV\EventData.csv", 
+        @"CSV\WhoData.csv", @"CSV\WhenData.csv", @"CSV\WhereData.csv", 
+        @"CSV\HowData.csv", @"CSV\WhatData.csv", @"CSV\WhyData.csv"
+    };
+
+    private void Start()
+    {
+        InitCsvData();
+    }
 
     #region Data
 
-    private void InitData()
+    private void InitCsvData()
     {
         // 이벤트 csv 긁어오기
         var eventDatasCSV = CSVReader.Read(resourcePaths[0]);
@@ -49,8 +58,16 @@ public class GameManager : PersistentSingleton<GameManager>
         }
     }
 
+    // 하루 넘기기
+    public void PassOneDay(string news)
+    {
+        AddNewsRecord(news);
+        curDay++;
+
+    }
+
     // 완성된 타이틀 목록 추가
-    public void AddNewsRecord(string news)
+    private void AddNewsRecord(string news)
     {
         newsRecords.Add(news);
     }
