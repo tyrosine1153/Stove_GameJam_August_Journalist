@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class EndingDay : GameManager
+public class EndingDay : MonoBehaviour
 {
     public Text Day;
     public Text RecordsNews;
@@ -24,7 +24,7 @@ public class EndingDay : GameManager
     void Update()
     {
         Day.text = "8월 " + EndDay + "일자";
-        RecordsNews.text = newsRecords[EndDay - 1];     
+        RecordsNews.text = GameManager.Instance.newsRecords[EndDay - 1];     
         Fect.text = GameManager.Instance.GetEvent().eventContent;
     }
 
