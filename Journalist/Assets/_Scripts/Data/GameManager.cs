@@ -7,8 +7,8 @@ public class GameManager : PersistentSingleton<GameManager>
     public List<string> newsRecords = new List<string>(); // 지금까지 만든 뉴스 기사들
     public int curDay; // 날짜 - 0 : 첫째날
 
-    public Dictionary<int, EventData> eventDatas; // 총 이벤트 목록
-    public Dictionary<int, CardData> cardDatas; // 총 카드 목록
+    public Dictionary<int, EventData> eventDatas = new Dictionary<int, EventData>(); // 총 이벤트 목록
+    public Dictionary<int, CardData> cardDatas = new Dictionary<int, CardData>(); // 총 카드 목록
 
     private EventData todayEvent;
 
@@ -16,14 +16,15 @@ public class GameManager : PersistentSingleton<GameManager>
 
     private readonly string[] ResourcePaths =
     {
-        @"CSV\EventData.csv", 
-        @"CSV\WhoData.csv", @"CSV\WhenData.csv", @"CSV\WhereData.csv", 
-        @"CSV\HowData.csv", @"CSV\WhatData.csv", @"CSV\WhyData.csv"
+        @"CSV/EventData", 
+        @"CSV/WhoData", @"CSV/WhenData", @"CSV/WhereData", 
+        @"CSV/HowData", @"CSV/WhatData", @"CSV/WhyData"
     };
 
     private void Start()
     {
         InitCsvData();
+        UpdateEvent();
     }
 
     #region Data
