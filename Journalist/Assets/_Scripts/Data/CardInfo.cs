@@ -3,7 +3,7 @@
     Who = 1,
     When,
     Where,
-    How,
     What,
+    How,
     Why,
 }
