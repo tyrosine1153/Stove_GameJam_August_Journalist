@@ -12,10 +12,10 @@ public class GameManager : PersistentSingleton<GameManager>
 
     private EventData todayEvent;
 
-    private readonly CardInfo[] cardInfos
-        = {CardInfo.How, CardInfo.When, CardInfo.Where, CardInfo.What, CardInfo.How, CardInfo.Why};
+    private readonly CardInfo[] CardInfos = (CardInfo[]) Enum.GetValues(typeof(CardInfo));
+        //= {CardInfo.How, CardInfo.When, CardInfo.Where, CardInfo.What, CardInfo.How, CardInfo.Why};
 
-    private readonly string[] resourcePaths =
+    private readonly string[] ResourcePaths =
     {
         @"CSV\EventData.csv", 
         @"CSV\WhoData.csv", @"CSV\WhenData.csv", @"CSV\WhereData.csv", 
@@ -32,11 +32,11 @@ public class GameManager : PersistentSingleton<GameManager>
     private void InitCsvData()
     {
         // 이벤트 csv 긁어오기
-        var eventDatasCSV = CSVReader.Read(resourcePaths[0]);
+        var eventDatasCSV = CSVReader.Read(ResourcePaths[0]);
         foreach (var eventData in eventDatasCSV)
         {
             var matchingCard = new Dictionary<CardInfo, int>();
-            foreach (var cardInfo in cardInfos)
+            foreach (var cardInfo in CardInfos)
             {
                 matchingCard[cardInfo] = (int) eventData[cardInfo.ToString()];
             }
@@ -46,9 +46,9 @@ public class GameManager : PersistentSingleton<GameManager>
         }
 
         // 카드 csv 긁어오기
-        foreach (var cardInfo in cardInfos)
+        foreach (var cardInfo in CardInfos)
         {
-            var cardDatasSCV = CSVReader.Read(resourcePaths[(int) cardInfo]);
+            var cardDatasSCV = CSVReader.Read(ResourcePaths[(int) cardInfo]);
             foreach (var cardData in cardDatasSCV)
             {
                 cardDatas[(int) cardData["Number"]]
