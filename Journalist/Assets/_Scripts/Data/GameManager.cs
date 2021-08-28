@@ -159,7 +159,7 @@ public class GameManager : PersistentSingleton<GameManager>
     // 이벤트 얻기
     public EventData GetEvent()
     {
-        return todayEvent;
+        return todayEvent;  
     }
 
     // 카드 종류별 덱3장 얻기
