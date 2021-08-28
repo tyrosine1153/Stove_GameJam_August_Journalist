@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Card : Widget, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -17,19 +18,15 @@ public class Card : Widget, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
         if (_isDragable)
         {
-            
+            GetComponent<Graphic>().raycastTarget = false;
         }
-        
-        throw new System.NotImplementedException();
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         if (_isDragable)
         {
-            
+            GetComponent<Graphic>().raycastTarget = true;
         }
-        
-        throw new System.NotImplementedException();
     }
 }
