@@ -12,11 +12,6 @@ public class Tutorial : MonoBehaviour
 
     [SerializeField] private GameObject[] tutorial;
 
-    private void Start()
-    {
-        throw new NotImplementedException();
-    }
-
     public void OnClickBoardClick()
     {
         switch (tutorialStep)
@@ -61,6 +56,7 @@ public class Tutorial : MonoBehaviour
             
             
             case 6:
+                gameObject.SetActive(false);
                 tutorial[5].SetActive(false);
                 blackBoard.color = new Color(1, 1, 1, 0);
                 break;
