@@ -49,7 +49,7 @@ public class EndingDay : MonoBehaviour
     {
         if (EndDay == 15)
         {
-            SceneManager.LoadScene("Demo_Choi");
+            SceneManager.LoadScene("Demo_Strat");
         }
     }
 
