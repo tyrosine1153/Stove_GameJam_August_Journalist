@@ -247,7 +247,7 @@ TextMesh:
   m_OffsetZ: 20
   m_CharacterSize: 1
   m_LineSpacing: 3.59
-  m_Anchor: 4
+  m_Anchor: 1
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 200
@@ -305,7 +305,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432358629}
-  m_LocalRotation: {x: 0.13052616, y: -0, z: -0, w: 0.9914449}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: -300, z: -60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 432358629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c726cda5b6dbf04ebbc3b027c9708af, type: 3}
+  m_Script: {fileID: 11500000, guid: 536b12648c8932b4196b36c005c27c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ScrollSpeed: 20
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1273180441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 993dc07614b7cac45a35b93760d319b2, type: 3}
+  m_Script: {fileID: 11500000, guid: cf505bf641d7e0642b01ed934979283d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NewsTitle: {fileID: 432358630}
