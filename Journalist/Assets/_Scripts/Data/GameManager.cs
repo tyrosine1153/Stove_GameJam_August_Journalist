@@ -23,7 +23,7 @@ public class GameManager : PersistentSingleton<GameManager>
         @"CSV/WhoData", @"CSV/WhenData", @"CSV/WhereData",
         @"CSV/HowData", @"CSV/WhatData", @"CSV/WhyData"
     };
-    
+
     private void Start()
     {
         InitCsvData();
@@ -78,11 +78,12 @@ public class GameManager : PersistentSingleton<GameManager>
         }
     }
 
+    // Data Save / Load
     public void SaveData()
     {
         var doneEventNum = eventDatas.Keys.Where(key => eventDatas[key].isHappened);
         var data = new SavingData(newsRecords.ToArray(), curDay, todayEvent.eventNumber, doneEventNum.ToArray());
-        
+
         CreateJsonFile(Application.dataPath, "GameManagerData", data);
     }
 
@@ -105,7 +106,7 @@ public class GameManager : PersistentSingleton<GameManager>
         AddNewsRecord(news);
         curDay++;
         UpdateEvent();
-        
+        SaveData();
     }
 
     // 완성된 타이틀 목록 추가
@@ -113,7 +114,7 @@ public class GameManager : PersistentSingleton<GameManager>
     {
         newsRecords.Add(news);
     }
-    
+
     // Json Save/Load
     private void CreateJsonFile<T>(string createPath, string fileName, T obj)
     {
@@ -144,7 +145,7 @@ public class GameManager : PersistentSingleton<GameManager>
     #region Event / Card
 
     // 이벤트 갱신 : 하루가 초기화 되었을 때 호출
-    public EventData UpdateEvent()
+    private EventData UpdateEvent()
     {
         var randomEvent = eventDatas.Values
             .Where(value => !value.isHappened)
@@ -183,6 +184,7 @@ public class GameManager : PersistentSingleton<GameManager>
 
     #endregion
 
+    // 데이터 표시
     [ContextMenu("EventDatas")]
     public void ShowEventDatas()
     {
