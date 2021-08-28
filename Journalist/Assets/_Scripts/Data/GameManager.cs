@@ -114,4 +114,28 @@ public class GameManager : PersistentSingleton<GameManager>
     }
 
     #endregion
+    
+    [ContextMenu("EventDatas")]
+    public void ShowEventDatas()
+    {
+        StringBuilder text = new StringBuilder();
+        foreach (var data in eventDatas)
+        {
+            text.Append($"{data.Key} : {data.Value.eventContent}\n");
+        }
+        
+        Debug.Log(text.ToString());
+    }
+
+    [ContextMenu("CardDatas")]
+    public void ShowCardDatas()
+    {
+        StringBuilder text = new StringBuilder();
+        foreach (var data in cardDatas)
+        {
+            text.Append($"{data.Key} : {data.Value.cardInfo} {data.Value.cardContent} {data.Value.cardDescription}\n");
+        }
+
+        Debug.Log(text.ToString());
+    }
 }
