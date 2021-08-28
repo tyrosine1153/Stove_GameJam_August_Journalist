@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InGameButton : MonoBehaviour // 사실과 메모장 상태 변경
 {
@@ -18,10 +19,11 @@ public class InGameButton : MonoBehaviour // 사실과 메모장 상태 변경
         if (State == false) // 비활성화 -> 활성화
         {
             Note.SetActive(true);
+            Note.GetComponentInChildren<Text>().text = GameManager.Instance.GetEvent().eventContent;
             State = true;
         }
         
-        else if (State == true) // 활성화 -> 비활성화
+        else if (State) // 활성화 -> 비활성화
         {
             Note.SetActive(false); 
             State = false; 
