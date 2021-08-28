@@ -16,12 +16,7 @@ public class Widget : MonoBehaviour
 
     public virtual void Show()
     {
-        
-    }
-
-    private void OnEnable()
-    {
-        Show();
+        transform.localScale = Vector3.one;
     }
 
     public static T Create<T>(bool activate = false) where T : Widget
