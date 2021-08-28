@@ -13,7 +13,6 @@ public class GameManager : PersistentSingleton<GameManager>
     private EventData todayEvent;
 
     private readonly CardInfo[] CardInfos = (CardInfo[]) Enum.GetValues(typeof(CardInfo));
-        //= {CardInfo.How, CardInfo.When, CardInfo.Where, CardInfo.What, CardInfo.How, CardInfo.Why};
 
     private readonly string[] ResourcePaths =
     {
