@@ -49,10 +49,5 @@ public class MainCanvas : MonoBehaviour
     {
         Widget.Create<Background>();
         yield return null;
-        Widget.Create<Hud>();
-        yield return null;
-        Widget.Create<Card>();
-        yield return null;
-        Widget.Create<Popup>();
     }
 }
