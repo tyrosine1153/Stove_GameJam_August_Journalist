@@ -8,14 +8,14 @@ public class EndingDay : MonoBehaviour
 {
     public Text Day;
     public Text RecordsNews;
-    public Text Fect;
+    public Text Fact;
     
     public int EndDay = 0;
     void Start()
     {
         Day = GameObject.Find("Day").GetComponent<Text>();
         RecordsNews= GameObject.Find("RecordNews").GetComponent<Text>();
-        Fect= GameObject.Find("Fect").GetComponent<Text>();
+        Fact= GameObject.Find("Fact").GetComponent<Text>();
         EndDay += 1;
         
     }
@@ -24,8 +24,8 @@ public class EndingDay : MonoBehaviour
     void Update()
     {
         Day.text = "8월 " + EndDay + "일자";
-        RecordsNews.text = GameManager.Instance.newsRecords[EndDay - 1];     
-        Fect.text = GameManager.Instance.GetEvent().eventContent;
+        RecordsNews.text = GameManager.Instance.newsRecords[EndDay - 1];
+        Fact.text = GameManager.Instance.eventDatas[GameManager.Instance.doneEvents[EndDay - 1]].eventContent;
     }
 
     public void OnClickRightButton()

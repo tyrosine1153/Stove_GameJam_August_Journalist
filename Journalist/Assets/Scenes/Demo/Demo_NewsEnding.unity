@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Day: {fileID: 1808254889}
   RecordsNews: {fileID: 1010458845}
-  Fect: {fileID: 2011799020}
+  Fact: {fileID: 2011799020}
   EndDay: 0
 --- !u!4 &70488350
 Transform:
@@ -240,7 +240,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: \
 --- !u!222 &263952034
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -563,7 +563,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 
 --- !u!222 &1301310153
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -618,6 +618,7 @@ MonoBehaviour:
   - 13
   - 14
   - 15
+  doneEvents: f7030000f6030000f5030000f4030000f3030000f2030000f1030000f0030000ef030000ee030000ed030000ec030000eb030000ea030000e9030000
   curDay: 0
 --- !u!4 &1322465254
 Transform:
@@ -1210,8 +1211,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 456c2297e5f3a014cabd6e760ebc2cf9, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1240,7 +1241,7 @@ GameObject:
   - component: {fileID: 2011799021}
   - component: {fileID: 2011799020}
   m_Layer: 5
-  m_Name: Fect
+  m_Name: Fact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1422,8 +1423,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5d7253979f3e9d54a8027035d7744b1a, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
