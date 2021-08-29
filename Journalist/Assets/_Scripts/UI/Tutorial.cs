@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UniRx;
 
 public class Tutorial : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private int tutorialStep;
 
     [SerializeField] private GameObject[] tutorial;
+
+    private void Awake()
+    {
+        Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(0))
+            .Subscribe(_ => OnClickBoardClick()).AddTo(gameObject);
+    }
 
     public void OnClickBoardClick()
     {
