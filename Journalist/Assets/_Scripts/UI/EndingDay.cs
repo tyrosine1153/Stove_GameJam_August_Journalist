@@ -9,6 +9,8 @@ public class EndingDay : MonoBehaviour
     public Text Day;
     public Text RecordsNews;
     public Text Fact;
+
+    public GameObject Credit;
     
     public int EndDay = 0;
     void Start()
@@ -55,4 +57,13 @@ public class EndingDay : MonoBehaviour
         }
     }
 
+    public void OnClickCredit()
+    {
+        Credit.SetActive(true);
+    }
+
+    public void OnClickCreditPanel()
+    {
+        Credit.SetActive(false);
+    }
 }
