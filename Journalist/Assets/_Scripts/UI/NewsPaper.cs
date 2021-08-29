@@ -28,17 +28,22 @@ public class NewsPaper : MonoSingleton<NewsPaper>, IDropHandler
     
     public void OnDrop(PointerEventData eventData)
     {
-        foreach (var tempCard in deck.deck)
+        if (eventData.pointerDrag != null)
         {
-            StartCoroutine(CoDirectCard(tempCard.transform));
+            AudioManager.Instance.PlaySound("CardAdd");
+            foreach (var tempCard in deck.deck)
+            {
+                StartCoroutine(CoDirectCard(tempCard.transform));
+            }
+
+            StartCoroutine(CoDirectCard(eventData.pointerDrag.transform));
+            var card = eventData.pointerDrag.GetComponent<Card>();
+            NowHeadline += card.Data.cardContent;
+            endEnter = true;
         }
-        StartCoroutine(CoDirectCard(eventData.pointerDrag.transform));
-        var card = eventData.pointerDrag.GetComponent<Card>();
-        NowHeadline += card.Data.cardContent;
-        endEnter = true;
     }
 
-    private IEnumerator CoDirectCard(Transform cardTransform)
+    private IEnumerator CoDirectCard(Transform cardTransform, bool isDropped = false)
     {
         cardTransform.SetParent(transform);
         var card = cardTransform.GetComponent<Card>();
@@ -46,6 +51,10 @@ public class NewsPaper : MonoSingleton<NewsPaper>, IDropHandler
         
         cardTransform.DOScale(cardTransform.localScale * .5f, .5f);
         yield return new WaitForSeconds(.5f);
+        if (isDropped)
+        {
+            AudioManager.Instance.PlaySound("TextAddSound");
+        }
         cardTransform.DOMove(trashTransform.position, .5f);
         cardTransform.GetComponent<RectTransform>().pivot = new Vector2(1, 0);
         yield return new WaitForSeconds(.5f);

@@ -30,11 +30,14 @@ public class PostPositionButton : MonoBehaviour
                 {
                     if (GameManager.Instance.curDay >= 14)
                     {
+                        AudioManager.Instance.bgmPlayer.audioSource.volume = .5f;
+                        AudioManager.Instance.PlaySound(BgmState.Ending);
                         SceneManager.LoadScene("Demo_NewsEnding");
                     }
                     GameManager.Instance.PassOneDay(NewsPaper.Instance.NowHeadline);
                     NewsPaper.Instance.nowEnterState = CardInfo.Who;
                     StartCoroutine(CoDirectNewsPaper());
+                    AudioManager.Instance.PlaySound("Newspaper");
                 }
                 NewsPaper.Instance.deck.SelectDeck();
             }).AddTo(gameObject);

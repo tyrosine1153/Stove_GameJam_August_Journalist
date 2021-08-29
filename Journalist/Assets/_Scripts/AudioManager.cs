@@ -4,17 +4,18 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 [RequireComponent(typeof(AudioSource))]
-public class AudioManager : MonoSingleton<AudioManager>
+public class AudioManager : PersistentSingleton<AudioManager>
 {
     public Slider slider;
+    public BgmPlayer bgmPlayer;
     private AudioSource _audioSource;
     private Dictionary<string, AudioClip> _audioDictionary = new Dictionary<string, AudioClip>();
     float backVol = 1f;
 
     private void Start()
     {
+        DontDestroyOnLoad(bgmPlayer);
         backVol = PlayerPrefs.GetFloat("backvol", 1f);
-        slider.value = backVol;
         _audioSource.volume = slider.value;
     }
     protected override void OnAwake()
@@ -35,12 +36,15 @@ public class AudioManager : MonoSingleton<AudioManager>
     {
         if (_audioDictionary.TryGetValue(name, out AudioClip clip))
         {
-            AudioSource tmp = GetComponent<AudioSource>();
-            tmp.volume = slider.value;
             _audioSource.PlayOneShot(clip);
             return true;
         }
 
         return false;
+    }
+
+    public void PlaySound(BgmState state)
+    {
+        bgmPlayer.PlayBgm(state);
     }
 }

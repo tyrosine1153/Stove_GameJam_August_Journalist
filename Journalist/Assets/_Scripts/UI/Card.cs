@@ -64,6 +64,7 @@ public class Card : Widget, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
         if (isDragable)
         {
+            AudioManager.Instance.PlaySound("CardSound");
             GetComponent<Graphic>().raycastTarget = false;
         }
     }
