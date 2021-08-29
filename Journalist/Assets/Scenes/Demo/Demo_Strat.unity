@@ -267,6 +267,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 336bd980b41050c45bf47e4bd16878b3, type: 3}
   - {fileID: 8300000, guid: d2de130a13399664590c91e56b4cf94c, type: 3}
   - {fileID: 8300000, guid: f74c724f2b83f19408b33097bc08bf1a, type: 3}
+  audioSource: {fileID: 0}
 --- !u!1 &614731665
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +462,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 9d47fa078df4c264b85d24287e81ac91, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -1275,7 +1276,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 9d47fa078df4c264b85d24287e81ac91, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
