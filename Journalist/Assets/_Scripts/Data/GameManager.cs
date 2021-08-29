@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GameManager : PersistentSingleton<GameManager>
 {
@@ -22,7 +23,7 @@ public class GameManager : PersistentSingleton<GameManager>
     {
         @"CSV/EventData",
         @"CSV/WhoData", @"CSV/WhenData", @"CSV/WhereData",
-        @"CSV/HowData", @"CSV/WhatData", @"CSV/WhyData"
+        @"CSV/WhatData", @"CSV/HowData", @"CSV/WhyData"
     };
 
     private void Start()
@@ -176,7 +177,7 @@ public class GameManager : PersistentSingleton<GameManager>
         cards[0] = cardDatas[matchingCardIndex];
 
         var randomCards = cardDatas.Values
-            .Where(value => value.cardInfo == cardInfo)
+            .Where(value => value.cardInfo == cards[0].cardInfo && value.cardNumber != cards[0].cardNumber)
             .OrderBy(value => Guid.NewGuid()).Take(2);
         int i = 0;
         foreach (var card in randomCards)
@@ -184,7 +185,7 @@ public class GameManager : PersistentSingleton<GameManager>
             cards[++i] = card;
         }
 
-        return cards;
+        return cards.OrderBy(_ => new Guid()).ToArray();
     }
 
     #endregion
