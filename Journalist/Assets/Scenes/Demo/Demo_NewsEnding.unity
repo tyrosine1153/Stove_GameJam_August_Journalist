@@ -155,7 +155,7 @@ MonoBehaviour:
   Day: {fileID: 1808254889}
   RecordsNews: {fileID: 1010458845}
   Fact: {fileID: 2011799020}
-  Credit: {fileID: 0}
+  Credit: {fileID: 2116711726}
   EndDay: 0
 --- !u!4 &70488350
 Transform:

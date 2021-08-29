@@ -51,9 +51,10 @@ public class EndingDay : MonoBehaviour
     {
         if (EndDay == 15)
         {
+            SceneManager.LoadScene("Demo_Strat");
             AudioManager.Instance.bgmPlayer.audioSource.volume = 1f;
             AudioManager.Instance.PlaySound(BgmState.Home);
-            SceneManager.LoadScene("Demo_Strat");
+            
         }
     }
 
