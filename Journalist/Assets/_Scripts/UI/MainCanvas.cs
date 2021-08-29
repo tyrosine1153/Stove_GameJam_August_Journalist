@@ -44,10 +44,4 @@ public class MainCanvas : MonoBehaviour
     {
         Instance = this;
     }
-
-    private IEnumerator Start()
-    {
-        Widget.Create<Background>();
-        yield return null;
-    }
 }
