@@ -321,7 +321,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 432358629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 536b12648c8932b4196b36c005c27c03, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c726cda5b6dbf04ebbc3b027c9708af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ScrollSpeed: 20
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1273180441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf505bf641d7e0642b01ed934979283d, type: 3}
+  m_Script: {fileID: 11500000, guid: 993dc07614b7cac45a35b93760d319b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NewsTitle: {fileID: 432358630}
