@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Card : Widget, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    [SerializeField] private Text nameText, descriptionText;
+    [SerializeField] private Text nameText, descriptionText, typeText;
     [SerializeField] private Image profileImage;
     
     public bool isDragable = true;
@@ -34,7 +34,8 @@ public class Card : Widget, IDragHandler, IBeginDragHandler, IEndDragHandler
         {
             descriptionText.text = Data.cardContent;
         }
-
+        typeText.text = Data.cardInfo.ToString();
+        
         profileImage.sprite = GetSpriteByInfo(NewsPaper.Instance.nowEnterState);
     }
 
