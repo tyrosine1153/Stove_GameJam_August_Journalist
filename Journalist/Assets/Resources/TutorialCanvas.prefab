@@ -409,7 +409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284.67365, y: -96.42865}
+  m_AnchoredPosition: {x: 212, y: -59}
   m_SizeDelta: {x: 54.6528, y: 71.1427}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1868118035
@@ -529,7 +529,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\uC774\uBC88 \uD134\uC5D0 \uC0AC\uC6A9\uD560 \uC218 \uC788\uB294 \uCE74\uB4DC
-    \uD328\uC774\uB2E4. \uD55C \uBC88 \uC0AC\uC6A9\uD558\uBA74 \uB418\uB3CC\uB9B4
+    \uD328\uC774\uB2E4. \n\uD55C \uBC88 \uC0AC\uC6A9\uD558\uBA74 \uB418\uB3CC\uB9B4
     \uC218 \uC5C6\uC73C\uB2C8 \uC2E0\uC911\uD788 \uC120\uD0DD\uD558\uC790."
 --- !u!1 &9134602400937224506
 GameObject:
@@ -647,8 +647,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -640.99634, y: -336}
-  m_SizeDelta: {x: 566.7574, y: 156.5761}
+  m_AnchoredPosition: {x: -741.8645, y: -357.62}
+  m_SizeDelta: {x: 365.0209, y: 225.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9134602400966509913
 CanvasRenderer:
@@ -1265,9 +1265,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: cd60c3117aeee4a43ac7faf4c5530c4e, type: 3}
+    m_FontSize: 60
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 100
@@ -1276,9 +1276,9 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\uB4DC\uB514\uC5B4 \uB54C\uAC00 \uCC3E\uC544\uC654\uB2E4. \uC55E\uC73C\uB85C
-    \uD55C \uB2EC\uAC04 \uBC1C\uAC04\uD558\uB294 \uAE30\uC0AC\uB4E4\uC744 \uD1A0\uB300\uB85C
+    m_LineSpacing: 0.8
+  m_Text: "\uB4DC\uB514\uC5B4 \uB54C\uAC00 \uC654\uB2E4. \uC55E\uC73C\uB85C \uD55C
+    \uB2EC\uAC04 \uBC1C\uAC04\uD558\uB294 \uAE30\uC0AC\uB4E4\uC744 \uD1A0\uB300\uB85C
     \n\uB0B4 \uC9C0\uBD80\uC7A5 \uC9C4\uAE09 \uC5EC\uBD80\uAC00 \uACB0\uC815\uB41C\uB2E4.
     \r\n\r\n\uC774\uBC88\uC5D4 \uBC18\uB4DC\uC2DC \uC9C4\uAE09\uD558\uB9AC\uB77C.\r"
 --- !u!1 &9134602402117948201
@@ -1726,7 +1726,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 365, y: 225.95}
+  m_AnchoredPosition: {x: 428, y: 225.95}
   m_SizeDelta: {x: 410.2057, y: 204.9198}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &9134602402893022228
